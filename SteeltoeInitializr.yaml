@@ -98,6 +98,9 @@ dependencies:
       description: Add a Dockerfile.
   - name: Hosting
     values:
+    - id: hosting-cloud
+      name: Cloud
+      description: Add hosting support for clouds.
     - id: hosting-azure-spring-cloud
       name: Azure Spring Cloud
       description: Add hosting support for Azure Spring Cloud.
