@@ -119,6 +119,9 @@ dependencies:
     - id: management-endpoints
       name: Management Endpoints
       description: Add application management endpoints, such as health and metrics.
+    - id: distributed-tracing
+      name: Distributed Tracing
+      description: Add distributed tracing support
   # - name: Messaging
   #   values:
   #   - id: messaging-rabbitmq
