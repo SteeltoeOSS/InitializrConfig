@@ -1,5 +1,5 @@
 dependencies:
-  type: hierarchical-multi-select
+  values:
   - name: Messaging
     values:
     - id: messaging-rabbitmq
