@@ -1,4 +1,6 @@
+---
 dependencies:
+  type: hierarchical-multi-select
   values:
   - name: Messaging
     values:
