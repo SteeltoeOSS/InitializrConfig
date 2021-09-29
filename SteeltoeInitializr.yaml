@@ -120,15 +120,3 @@ dependencies:
     - id: distributed-tracing
       name: Distributed Tracing
       description: Add distributed tracing support
-  # - name: Messaging
-  #   values:
-  #   - id: messaging-rabbitmq
-  #     name: RabbitMQ Messaging
-  #     description: Add RabbitMQ messaging support and auto-configuration.
-  #     steeltoeVersionRange: "3.1.0-rc2"
-  # - name: Streams
-  #   values:
-  #   - id: stream-rabbitmq
-  #     name: RabbitMQ Stream
-  #     description: Add RabbitMQ stream support and auto-configuration.
-  #     steeltoeVersionRange: "3.1.0-rc2"
