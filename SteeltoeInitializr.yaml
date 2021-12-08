@@ -10,10 +10,10 @@ description:
   default: Sample project
 steeltoeVersion:
   type: single-select
-  default: 3.1.0
+  default: 3.1.2
   values:
-  - id: 3.1.0
-    name: Steeltoe 3.1.0 Release
+  - id: 3.1.2
+    name: Steeltoe 3.1.2 Release
   - id: 3.0.2
     name: Steeltoe 3.0.2 Maintenance Release
   - id: 2.5.5
