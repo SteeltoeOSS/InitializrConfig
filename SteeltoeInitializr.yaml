@@ -28,10 +28,12 @@ dotNetFramework:
     name: .NET Core 3.1
 language:
   type: single-select
-  default: csharp
+  default: C#
   values:
-  - id: csharp
+  - id: C#
     name: C#
+  - id: F#
+    name: F#
 packaging:
   type: single-select
   default: zip

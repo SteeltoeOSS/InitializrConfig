@@ -1,8 +1,0 @@
-language:
-  type: single-select
-  default: C#
-  values:
-  - id: C#
-    name: C#
-  - id: F#
-    name: F#
