@@ -20,8 +20,10 @@ steeltoeVersion:
     name: Steeltoe 2.5.5 Maintenance Release
 dotNetFramework:
   type: single-select
-  default: netcoreapp3.1
+  default: net6.0
   values:
+  - id: net6.0
+    name: .NET 6.0
   - id: net5.0
     name: .NET 5.0
   - id: netcoreapp3.1
