@@ -1,0 +1,10 @@
+steeltoeVersion:
+  type: single-select
+  default: 3.1.3
+  values:
+    - id: 3.1.3
+      name: Steeltoe 3.1.3 Release
+    - id: 3.0.2
+      name: Steeltoe 3.0.2 Maintenance Release
+    - id: 2.5.5
+      name: Steeltoe 2.5.5 Maintenance Release
