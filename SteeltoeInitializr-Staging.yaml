@@ -1,0 +1,13 @@
+dependencies:
+  type: hierarchical-multi-select
+  values:
+  - name: Messaging
+    values:
+    - id: messaging-rabbitmq-client
+      name: RabbitMQ Messaging Client
+      description: Add a RabbitMQ client service for sending and receiving messages.
+      steeltoeVersionRange: "3.0.0"
+    - id: messaging-rabbitmq-listener
+      name: RabbitMQ Messaging Listener
+      description: Add a RabbitMQ listener service for processing messages.
+      steeltoeVersionRange: "3.0.0"
