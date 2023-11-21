@@ -26,8 +26,6 @@ dotNetFramework:
   values:
   - id: net6.0
     name: .NET 6.0
-  - id: netcoreapp3.1
-    name: .NET Core 3.1
 language:
   type: single-select
   default: C#
@@ -107,7 +105,6 @@ dependencies:
     - id: hosting-azure-spring-cloud
       name: Azure Spring Cloud
       description: Add hosting support for Azure Spring Cloud.
-      dotNetFrameworkRange: "[netcoreapp3.1,net5.0)"
       active: false
     - id: hosting-cloud-foundry
       name: Cloud Foundry
