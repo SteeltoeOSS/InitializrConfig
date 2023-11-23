@@ -10,16 +10,18 @@ description:
   default: Sample project
 steeltoeVersion:
   type: single-select
-  default: 3.2.0
+  default: 3.2.5
   values:
-  - id: 3.2.0
-    name: Steeltoe 3.2.0 Release
+  - id: 3.2.5
+    name: Steeltoe 3.2.5 Release
 dotNetFramework:
   type: single-select
   default: net6.0
   values:
   - id: net6.0
     name: .NET 6.0
+  - id: net8.0
+    name: .NET 8.0
 language:
   type: single-select
   default: C#
