@@ -10,26 +10,28 @@ description:
   default: Sample project
 steeltoeVersion:
   type: single-select
-  default: 3.2.6
+  default: 4.0.*-*
   values:
-  - id: 3.2.6
-    name: Steeltoe 3.2.6 Release
+  - id: 3.2.*
+    name: Steeltoe 3.2
+  - id: 4.0.*-*
+    name: Steeltoe 4.0
 dotNetFramework:
   type: single-select
-  default: net6.0
+  default: net8.0
   values:
   - id: net6.0
-    name: .NET 6.0
+    name: .NET 6.0 (Out of support)
   - id: net8.0
-    name: .NET 8.0
+    name: .NET 8.0 (Long Term Support)
+  - id: net9.0
+    name: .NET 9 (Standard Term Support)
 language:
   type: single-select
   default: C#
   values:
   - id: C#
     name: C#
-  - id: F#
-    name: F#
 packaging:
   type: single-select
   default: zip
@@ -41,80 +43,114 @@ dependencies:
   - name: Circuit Breakers
     values:
     - id: circuit-breaker-hystrix
-      name: Netflix Hystrix Circuit Breaker
-      description: Add support for Netflix Hystrix, a latency and fault tolerance library.
+      name: Use Netflix Hystrix (Steeltoe 3.x only)
+      description: Adds support for Netflix Hystrix, a latency and fault tolerance library.
   - name: Configuration
     values:
     - id: configuration-cloud-config
-      name: Spring Cloud Config
-      description: Add a Spring Cloud Config configuration source.
+      name: Use Spring Cloud Config Server
+      description: Adds a client for Spring Cloud Config Server to configuration.
+    - id: configuration-encryption
+      name: Use encrypted configuration (Steeltoe 4.0 or higher)
+      description: Adds decryption of encrypted settings in configuration.
     - id: configuration-placeholder
-      name: Placeholder
-      description: Add a placeholder configuration source.
+      name: Use placeholder substitution in configuration
+      description: Adds placeholder substitution to configuration.
     - id: configuration-random-value
-      name: Random Value
-      description: Add a random value configuration source.
+      name: Use random values in configuration
+      description: Adds random value generation to configuration.
+    - id: configuration-spring-boot
+      name: Use Spring Boot configuration keys
+      description: Adds support for reading Spring Boot-style keys from configuration.
   - name: Connectors
     values:
+    - id: connector-cosmosdb
+      name: Use CosmosDB connector
+      description: Adds a connector for CosmosDB databases.
     - id: connector-mongodb
-      name: MongoDB Connector
-      description: Add a connector for MongoDB databases.
+      name: Use MongoDB connector
+      description: Adds a connector for MongoDB databases.
     - id: connector-mysql
-      name: MySQL Connector
-      description: Add a connector for MySQL databases.
+      name: Use MySQL connector with ADO.NET
+      description: Adds a connector for MySQL databases using ADO.NET.
     - id: connector-mysql-efcore
-      name: MySQL EFCore Connector
-      description: Add a connector for MySQL databases using Entity Framework Core.
+      name: Use MySQL connector with Entity Framework Core
+      description: Adds a connector for MySQL databases using Entity Framework Core.
     - id: connector-oauth
-      name: OAuth Connector
-      description: Add a connector for OAuth security.
+      name: Use OAuth connector (Steeltoe 3.x only)
+      description: Adds a connector for OAuth2 security on Cloud Foundry.
     - id: connector-postgresql
-      name: PostgreSQL Connector
-      description: Add a connector for PostgreSQL databases.
+      name: Use PostgreSQL connector with ADO.NET
+      description: Adds a connector for PostgreSQL databases using ADO.NET.
     - id: connector-postgresql-efcore
-      name: PostgreSQL EFCore Connector
-      description: Add a connector for PostgreSQL databases using Entity Framework Core.
+      name: Use PostgreSQL connector with Entity Framework Core
+      description: Adds a connector for PostgreSQL databases using Entity Framework Core.
     - id: connector-rabbitmq
-      name: RabbitMQ Connector
-      description: Add a connector for RabbitMQ message brokers.
+      name: Use RabbitMQ connector
+      description: Adds a connector for RabbitMQ message brokers.
     - id: connector-redis
-      name: Redis Connector
-      description: Add a connector for Redis data stores.
+      name: Use Redis connector
+      description: Adds a connector for Redis data stores.
     - id: connector-sqlserver
-      name: Microsoft SQL Server Connector
-      description: Add a connector for Microsoft SQL Server databases.
+      name: Use Microsoft SQL Server connector with ADO.NET
+      description: Adds a connector for Microsoft SQL Server databases using ADO.NET.
+    - id: connector-sqlserver-efcore
+      name: Use Microsoft SQL Server connector with Entity Framework Core
+      description: Adds a connector for Microsoft SQL Server databases using Entity Framework Core.
   - name: Discovery
     values:
+    - id: discovery-consul
+      name: Use service discovery with HashiCorp Consul
+      description: Adds a service discovery client for HashiCorp Consul.
     - id: discovery-eureka
-      name: Eureka Discovery Client
-      description: Add access to Eureka, a REST-based service for locating services.
+      name: Use service discovery with Netflix Eureka
+      description: Adds a service discovery client for Netflix Eureka.
   - name: Docker
     values:
     - id: dockerfile
-      name: Dockerfile
-      description: Add a Dockerfile.
+      name: Add a Dockerfile
+      description: Adds a Dockerfile to the project for container support.
   - name: Hosting
     values:
     - id: hosting-cloud
-      name: Cloud
-      description: Add hosting support for clouds.
+      name: Use dynamic port bindings in cloud environments (Steeltoe 3.x only)
+      description: Adds support for listening on the port specified by the hosting environment.
     - id: hosting-azure-spring-cloud
-      name: Azure Spring Cloud
-      description: Add hosting support for Azure Spring Cloud.
+      name: Use Microsoft Azure Spring Cloud (Steeltoe 3.x only)
+      description: Adds hosting support for running on Microsoft Azure Spring Cloud.
       active: false
     - id: hosting-cloud-foundry
-      name: Cloud Foundry
-      description: Add hosting support for Cloud Foundry.
+      name: Use Cloud Foundry
+      description: Adds hosting support for running on Cloud Foundry.
   - name: Logging
     values:
-    - id: logging-dynamic-logger
-      name: Dynamic Logger
-      description: Add dynamic logging.
+    - id: logging-dynamic-console
+      name: Use dynamic console logger
+      description: Enables dynamically changing minimum levels at runtime using the .NET console logger.
+    - id: logging-dynamic-serilog
+      name: Use dynamic Serilog logger
+      description: Enables dynamically changing minimum levels at runtime using Serlog.
   - name: Management
     values:
     - id: management-endpoints
-      name: Management Endpoints
-      description: Add application management endpoints, such as health and metrics.
+      name: Use management endpoints
+      description: Adds management endpoints, providing info about versions, configuration, mapped routes and HTTP traffic, heap/thread dumps, health checks and changing log levels.
+    - id: management-tasks
+      name: Use management tasks
+      description: Adds task execution, based on command-line arguments.
     - id: distributed-tracing
-      name: Distributed Tracing
-      description: Add distributed tracing support
+      name: Use distributed tracing
+      description: Adds distributed tracing support.
+  - name: Messaging
+    values:
+    - id: messaging-rabbitmq-client
+      name: Use RabbitMQ client service (Steeltoe 3.x only)
+      description: Adds a RabbitMQ client service for sending and receiving messages.
+    - id: messaging-rabbitmq-listener
+      name: Use RabbitMQ listener service (Steeltoe 3.x only)
+      description: Adds a RabbitMQ listener service for processing messages.
+  - name: Security
+    values:
+    - id: data-protection-redis
+      name: Use data protection with Redis
+      description: Configures the ASP.NET data protection system to persist keys in a Redis database.
