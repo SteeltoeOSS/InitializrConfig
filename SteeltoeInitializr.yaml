@@ -10,18 +10,16 @@ description:
   default: Sample project
 steeltoeVersion:
   type: single-select
-  default: 4.0.*-*
+  default: 4.0.x-x
   values:
-  - id: 3.2.*
-    name: Steeltoe 3.2
-  - id: 4.0.*-*
-    name: Steeltoe 4.0
+  - id: 3.2.x
+    name: Steeltoe 3.2.x (stable)
+  - id: 4.0.x-x
+    name: Steeltoe 4.0.x (pre-release)
 dotNetFramework:
   type: single-select
   default: net8.0
   values:
-  - id: net6.0
-    name: .NET 6.0 (Out of support)
   - id: net8.0
     name: .NET 8.0 (Long Term Support)
   - id: net9.0
@@ -43,7 +41,8 @@ dependencies:
   - name: Circuit Breakers
     values:
     - id: circuit-breaker-hystrix
-      name: Use Netflix Hystrix (Steeltoe 3.x only)
+      steeltoeVersionRange: '[3.0,4.0)'
+      name: Use Netflix Hystrix
       description: Adds support for Netflix Hystrix, a latency and fault tolerance library.
   - name: Configuration
     values:
@@ -51,7 +50,8 @@ dependencies:
       name: Use Spring Cloud Config Server
       description: Adds a client for Spring Cloud Config Server to configuration.
     - id: configuration-encryption
-      name: Use encrypted configuration (Steeltoe 4.0 or higher)
+      steeltoeVersionRange: '[4.0]'
+      name: Use encrypted configuration
       description: Adds decryption of encrypted settings in configuration.
     - id: configuration-placeholder
       name: Use placeholder substitution in configuration
@@ -77,7 +77,8 @@ dependencies:
       name: Use MySQL connector with Entity Framework Core
       description: Adds a connector for MySQL databases using Entity Framework Core.
     - id: connector-oauth
-      name: Use OAuth connector (Steeltoe 3.x only)
+      steeltoeVersionRange: '[3.0,4.0)'
+      name: Use OAuth connector
       description: Adds a connector for OAuth2 security on Cloud Foundry.
     - id: connector-postgresql
       name: Use PostgreSQL connector with ADO.NET
@@ -113,10 +114,12 @@ dependencies:
   - name: Hosting
     values:
     - id: hosting-cloud
-      name: Use dynamic port bindings in cloud environments (Steeltoe 3.x only)
+      steeltoeVersionRange: '[3.0,4.0)'
+      name: Use dynamic port bindings in cloud environments
       description: Adds support for listening on the port specified by the hosting environment.
     - id: hosting-azure-spring-cloud
-      name: Use Microsoft Azure Spring Cloud (Steeltoe 3.x only)
+      steeltoeVersionRange: '[3.0,4.0)'
+      name: Use Microsoft Azure Spring Cloud
       description: Adds hosting support for running on Microsoft Azure Spring Cloud.
       active: false
     - id: hosting-cloud-foundry
@@ -144,10 +147,12 @@ dependencies:
   - name: Messaging
     values:
     - id: messaging-rabbitmq-client
-      name: Use RabbitMQ client service (Steeltoe 3.x only)
+      steeltoeVersionRange: '[3.0,4.0)'
+      name: Use RabbitMQ client service
       description: Adds a RabbitMQ client service for sending and receiving messages.
     - id: messaging-rabbitmq-listener
-      name: Use RabbitMQ listener service (Steeltoe 3.x only)
+      steeltoeVersionRange: '[3.0,4.0)'
+      name: Use RabbitMQ listener service
       description: Adds a RabbitMQ listener service for processing messages.
   - name: Security
     values:

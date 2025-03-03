@@ -44,7 +44,7 @@ namespace Steeltoe.Initializr.ApiTests
             DownloadAndBuildProject(request, testDir);
         }
 
-        private void DownloadAndBuildProject(IRestRequest request, string workingDirectory)
+        private void DownloadAndBuildProject(RestRequest request, string workingDirectory)
         {
             var response = Configuration.RestClient.Get(request);
             if (response.StatusCode.Equals(HttpStatusCode.NotFound))
@@ -68,7 +68,7 @@ namespace Steeltoe.Initializr.ApiTests
                 foreach (var entry in archive.Entries)
                 {
                     var path = Path.GetFullPath(Path.Combine(workingDirectory, entry.FullName));
-                    if (path.EndsWith("/"))
+                    if (path.EndsWith(Path.DirectorySeparatorChar))
                     {
                         _console.WriteLine($"creating directory {path}");
                         Directory.CreateDirectory(path);
