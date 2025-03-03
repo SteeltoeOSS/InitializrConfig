@@ -1,13 +1,4 @@
 ---
-name:
-  type: text
-  default: Sample
-namespace:
-  type: text
-  default: Sample
-description:
-  type: text
-  default: Sample project
 steeltoeVersion:
   type: single-select
   default: 4.0.x-x
@@ -30,11 +21,6 @@ language:
   values:
   - id: C#
     name: C#
-packaging:
-  type: single-select
-  default: zip
-  values:
-  - id: zip
 dependencies:
   type: hierarchical-multi-select
   values:
