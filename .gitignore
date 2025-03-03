@@ -1,8 +1,10 @@
-# User-specific state
-/*.sln.DotSettings.user
+*.sln.DotSettings.User
 
-# VS Code sate
+bin/
+obj/
+
+/.idea/
+/.vs/
 /.vscode/
 
-# JetBrains Rider state
-/.idea/
+/tools/
