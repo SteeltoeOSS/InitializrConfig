@@ -1,7 +1,7 @@
 ---
 steeltoeVersion:
   type: single-select
-  default: 4.0.x-main-x
+  default: 4.0.x-x
   values:
   - id: 3.2.x
     name: Steeltoe 3.2.x (stable)
