@@ -1,12 +1,12 @@
 ---
 steeltoeVersion:
   type: single-select
-  default: 4.0.x-x
+  default: 4.0.x
   values:
-  - id: 3.2.x
-    name: Steeltoe 3.2.x (stable)
-  - id: 4.0.x-x
-    name: Steeltoe 4.0.x (pre-release)
+  - id: 3.3.x
+    name: Steeltoe 3.3.x (stable)
+  - id: 4.0.x
+    name: Steeltoe 4.0.x (stable)
   - id: 4.x-main-x
     name: Steeltoe 4.x (unstable)
 dotNetFramework:
