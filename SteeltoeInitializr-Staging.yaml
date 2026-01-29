@@ -13,6 +13,8 @@ dotNetFramework:
   type: single-select
   default: net8.0
   values:
+  - id: net6.0
+    name: .NET 6.0 (Out of support)
   - id: net8.0
     name: .NET 8.0 (Long Term Support)
   - id: net9.0
