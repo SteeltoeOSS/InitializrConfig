@@ -17,6 +17,8 @@ dotNetFramework:
     name: .NET 8.0 (Long Term Support)
   - id: net9.0
     name: .NET 9 (Standard Term Support)
+  - id: net10.0
+    name: .NET 10 (Long Term Support)
 language:
   type: single-select
   default: C#
