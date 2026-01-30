@@ -44,7 +44,7 @@ dependencies:
       name: Use Spring Cloud Config Server
       description: Adds a client for Spring Cloud Config Server to configuration.
     - id: configuration-encryption
-      steeltoeVersionRange: '[4.x]'
+      steeltoeVersionRange: '[4.0,5.0)'
       name: Use encrypted configuration
       description: Adds decryption of encrypted settings in configuration.
     - id: configuration-placeholder
