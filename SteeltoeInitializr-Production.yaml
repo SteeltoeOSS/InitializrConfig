@@ -1,22 +1,28 @@
 ---
 steeltoeVersion:
   type: single-select
-  default: 4.0.x
+  default: 4.1.x
   values:
   - id: 3.3.x
     name: Steeltoe 3.3.x (stable)
   - id: 4.0.x
     name: Steeltoe 4.0.x (stable)
+  - id: 4.1.x
+    name: Steeltoe 4.1.x (stable)
   - id: 4.x-main-x
     name: Steeltoe 4.x (unstable)
 dotNetFramework:
   type: single-select
-  default: net8.0
+  default: net10.0
   values:
+  - id: net6.0
+    name: .NET 6.0 (Out of support)
   - id: net8.0
     name: .NET 8.0 (Long Term Support)
   - id: net9.0
     name: .NET 9 (Standard Term Support)
+  - id: net10.0
+    name: .NET 10 (Long Term Support)
 language:
   type: single-select
   default: C#
@@ -38,7 +44,7 @@ dependencies:
       name: Use Spring Cloud Config Server
       description: Adds a client for Spring Cloud Config Server to configuration.
     - id: configuration-encryption
-      steeltoeVersionRange: '[4.0]'
+      steeltoeVersionRange: '[4.0,5.0)'
       name: Use encrypted configuration
       description: Adds decryption of encrypted settings in configuration.
     - id: configuration-placeholder
