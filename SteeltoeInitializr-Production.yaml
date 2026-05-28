@@ -1,22 +1,18 @@
 ---
 steeltoeVersion:
   type: single-select
-  default: 4.1.x
+  default: 4.2.x
   values:
-  - id: 3.3.x
-    name: Steeltoe 3.3.x (stable)
-  - id: 4.0.x
-    name: Steeltoe 4.0.x (stable)
-  - id: 4.1.x
-    name: Steeltoe 4.1.x (stable)
+  - id: 3.4.x
+    name: Steeltoe 3.4.x (stable)
+  - id: 4.2.x
+    name: Steeltoe 4.2.x (stable)
   - id: 4.x-main-x
     name: Steeltoe 4.x (unstable)
 dotNetFramework:
   type: single-select
   default: net10.0
   values:
-  - id: net6.0
-    name: .NET 6.0 (Out of support)
   - id: net8.0
     name: .NET 8.0 (Long Term Support)
   - id: net9.0
