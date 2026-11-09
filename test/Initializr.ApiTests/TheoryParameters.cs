@@ -9,7 +9,7 @@ namespace Steeltoe.Initializr.ApiTests
 
         public AllProjectCombinations()
         {
-            _combinations = new List<object[]>();
+            _combinations = [];
             var versions = Configuration.SteeltoeVersions;
             var frameworks = Configuration.DotNetFrameworks;
             // versions = new[] {"3.0.2"};
@@ -18,7 +18,7 @@ namespace Steeltoe.Initializr.ApiTests
             {
                 foreach (var framework in frameworks)
                 {
-                    _combinations.Add(new object[] {version, framework});
+                    _combinations.Add([version, framework]);
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace Steeltoe.Initializr.ApiTests
 
         public AllProjectCombinationsWithDependencies()
         {
-            _combinations = new List<object[]>();
+            _combinations = [];
             var versions = Configuration.SteeltoeVersions;
             var frameworks = Configuration.DotNetFrameworks;
             var deps = Configuration.Dependencies;
@@ -53,7 +53,7 @@ namespace Steeltoe.Initializr.ApiTests
                 {
                     foreach (var dep in deps)
                     {
-                        _combinations.Add(new object[] {version, framework, dep});
+                        _combinations.Add([version, framework, dep]);
                     }
                 }
             }

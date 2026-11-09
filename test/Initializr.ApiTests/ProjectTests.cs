@@ -8,15 +8,8 @@ using Xunit;
 
 namespace Steeltoe.Initializr.ApiTests
 {
-    public class ProjectTests
+    public class ProjectTests(ITestOutputHelper output)
     {
-        private readonly ITestOutputHelper _console;
-
-        public ProjectTests(ITestOutputHelper output)
-        {
-            _console = output;
-        }
-
         [Theory]
         [ClassData(typeof(AllProjectCombinationsWithDependencies))]
         public void TestProjectCombinationWithDependency(string version, string framework, string dependency)
@@ -48,20 +41,20 @@ namespace Steeltoe.Initializr.ApiTests
             var response = Configuration.RestClient.Get(request);
             if (response.StatusCode.Equals(HttpStatusCode.NotFound))
             {
-                _console.WriteLine($"skipping unsupported combination");
+                output.WriteLine("skipping unsupported combination");
                 return;
             }
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             response.IsSuccessful.Should().BeTrue();
-            _console.WriteLine($"working directory: {workingDirectory}");
+            output.WriteLine($"working directory: {workingDirectory}");
             if (Directory.Exists(workingDirectory))
             {
                 Directory.Delete(workingDirectory, true);
             }
 
             Directory.CreateDirectory(workingDirectory);
-            using (var buf = new MemoryStream(response.RawBytes))
+            using (var buf = new MemoryStream(response.RawBytes ?? []))
             {
                 var archive = new ZipArchive(buf);
                 foreach (var entry in archive.Entries)
@@ -69,12 +62,12 @@ namespace Steeltoe.Initializr.ApiTests
                     var path = Path.GetFullPath(Path.Combine(workingDirectory, entry.FullName));
                     if (path.EndsWith(Path.DirectorySeparatorChar))
                     {
-                        _console.WriteLine($"creating directory {path}");
+                        output.WriteLine($"creating directory {path}");
                         Directory.CreateDirectory(path);
                     }
                     else
                     {
-                        _console.WriteLine($"extracting {path}");
+                        output.WriteLine($"extracting {path}");
                         entry.ExtractToFile(path);
                     }
                 }
@@ -94,10 +87,10 @@ namespace Steeltoe.Initializr.ApiTests
             proc.WaitForExit();
             if (proc.ExitCode != 0)
             {
-                _console.WriteLine("--- process STDOUT ---");
-                _console.WriteLine(proc.StandardOutput.ReadToEnd());
-                _console.WriteLine("--- process STDERR ---");
-                _console.WriteLine(proc.StandardError.ReadToEnd());
+                output.WriteLine("--- process STDOUT ---");
+                output.WriteLine(proc.StandardOutput.ReadToEnd());
+                output.WriteLine("--- process STDERR ---");
+                output.WriteLine(proc.StandardError.ReadToEnd());
                 proc.ExitCode.Should().Be(0);
             }
 
