@@ -5,7 +5,6 @@ using System.Net;
 using FluentAssertions;
 using RestSharp;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Steeltoe.Initializr.ApiTests
 {
