@@ -1,5 +1,5 @@
 # Steeltoe InitializrConfiguration
 
-[![Build Status](https://dev.azure.com/SteeltoeOSS/Steeltoe/_apis/build/status/Initializr/SteeltoeOSS.InitializrConfig?branchName=main)](https://dev.azure.com/SteeltoeOSS/Steeltoe/_build/latest?definitionId=36&branchName=main)
+[![Build Status](https://github.com/SteeltoeOSS/InitializrConfig/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/SteeltoeOSS/InitializrConfig/actions/workflows/build.yml?query=branch%3Amain)
 
 Configuration for [Steeltoe InitializrWeb](https://github.com/SteeltoeOSS/InitializrWeb)
