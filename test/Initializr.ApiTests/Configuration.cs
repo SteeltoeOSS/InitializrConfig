@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using RestSharp;
-using Steeltoe.InitializrApi.Config;
+using Steeltoe.InitializrService.Config;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -11,15 +11,15 @@ namespace Steeltoe.Initializr.ApiTests
 {
     public static class Configuration
     {
-        public static string ApiUrl { get; private set; }
+        public static string ApiUrl { get; }
 
-        public static RestClient RestClient { get; private set; }
+        public static RestClient RestClient { get; }
 
-        public static string[] SteeltoeVersions { get; private set; }
+        public static string[] SteeltoeVersions { get; }
 
-        public static string[] DotNetFrameworks { get; private set; }
+        public static string[] DotNetFrameworks { get; }
 
-        public static string[] Dependencies { get; private set; }
+        public static string[] Dependencies { get; }
 
         public static string GetTestDir(string version, string framework, string dependency)
         {
@@ -37,7 +37,7 @@ namespace Steeltoe.Initializr.ApiTests
                     .WithNamingConvention(CamelCaseNamingConvention.Instance)
                     .Build();
                 var settings = deserializer.Deserialize<TestSettings>(reader);
-                InitializeApiUrl(settings);
+                ApiUrl = GetApiUrl(settings);
             }
 
             using (var reader = new StreamReader("SteeltoeInitializr.yaml"))
@@ -46,20 +46,20 @@ namespace Steeltoe.Initializr.ApiTests
                     .WithNamingConvention(CamelCaseNamingConvention.Instance)
                     .Build();
                 var config = deserializer.Deserialize<UiConfig>(reader);
-                InitializeSteeltoeVersions(config);
-                InitializeDotNetFrameworks(config);
-                InitializeDependencies(config);
+                SteeltoeVersions = GetSteeltoeVersions(config);
+                DotNetFrameworks = GetDotNetFrameworks(config);
+                Dependencies = GetDependencies(config);
             }
 
             RestClient = new RestClient(ApiUrl);
         }
 
-        private static void InitializeApiUrl(TestSettings settings)
+        private static string GetApiUrl(TestSettings settings)
         {
-            ApiUrl = Environment.GetEnvironmentVariable("INITIALIZR_API_URL") ?? settings.ApiUrl;
+            return Environment.GetEnvironmentVariable("INITIALIZR_API_URL") ?? settings.ApiUrl;
         }
 
-        private static void InitializeSteeltoeVersions(UiConfig config)
+        private static string[] GetSteeltoeVersions(UiConfig config)
         {
             var versions = new List<string>();
             foreach (var version in config.SteeltoeVersion.Values)
@@ -67,10 +67,10 @@ namespace Steeltoe.Initializr.ApiTests
                 versions.Add(version.Id);
             }
 
-            SteeltoeVersions = versions.ToArray();
+            return versions.ToArray();
         }
 
-        private static void InitializeDotNetFrameworks(UiConfig config)
+        private static string[] GetDotNetFrameworks(UiConfig config)
         {
             var frameworks = new List<string>();
             foreach (var framework in config.DotNetFramework.Values)
@@ -78,10 +78,10 @@ namespace Steeltoe.Initializr.ApiTests
                 frameworks.Add(framework.Id);
             }
 
-            DotNetFrameworks = frameworks.ToArray();
+            return frameworks.ToArray();
         }
 
-        private static void InitializeDependencies(UiConfig config)
+        private static string[] GetDependencies(UiConfig config)
         {
             var deps = new List<string>();
             foreach (var group in config.Dependencies.Values)
@@ -92,7 +92,7 @@ namespace Steeltoe.Initializr.ApiTests
                 }
             }
 
-            Dependencies = deps.ToArray();
+            return deps.ToArray();
         }
     }
 

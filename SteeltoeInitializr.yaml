@@ -8,6 +8,37 @@ namespace:
 description:
   type: text
   default: Sample project
+steeltoeVersion:
+  type: single-select
+  default: 4.3.x
+  values:
+  - id: 4.3.x
+    name: Steeltoe 4.3.x (stable)
+dotNetFramework:
+  type: single-select
+  default: net10.0
+  values:
+  - id: net10.0
+    name: .NET 10 (Long Term Support)
+language:
+  type: single-select
+  default: C#
+  values:
+  - id: C#
+    name: C#
+dependencies:
+  type: hierarchical-multi-select
+  values:
+  - name: Configuration
+    values:
+    - id: configuration-placeholder
+      name: Use placeholder substitution in configuration
+      description: Adds placeholder substitution to configuration.
+  - name: Docker
+    values:
+    - id: dockerfile
+      name: Add a Dockerfile
+      description: Adds a Dockerfile to the project for container support.
 packaging:
   type: single-select
   default: zip
