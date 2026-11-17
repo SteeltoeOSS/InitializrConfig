@@ -3,8 +3,6 @@ steeltoeVersion:
   type: single-select
   default: 4.3.x
   values:
-  - id: 3.4.x
-    name: Steeltoe 3.4.x (out of support)
   - id: 4.3.x
     name: Steeltoe 4.3.x (stable)
   - id: 4.x-main-x
@@ -13,12 +11,10 @@ dotNetFramework:
   type: single-select
   default: net10.0
   values:
-  - id: net8.0
-    name: .NET 8.0 (Long Term Support)
-  - id: net9.0
-    name: .NET 9 (Standard Term Support)
   - id: net10.0
     name: .NET 10 (Long Term Support)
+  - id: net11.0
+    name: .NET 11 (Standard Term Support)
 language:
   type: single-select
   default: C#
@@ -28,12 +24,6 @@ language:
 dependencies:
   type: hierarchical-multi-select
   values:
-  - name: Circuit Breakers
-    values:
-    - id: circuit-breaker-hystrix
-      steeltoeVersionRange: '[3.0,4.0)'
-      name: Use Netflix Hystrix
-      description: Adds support for Netflix Hystrix, a latency and fault tolerance library.
   - name: Configuration
     values:
     - id: configuration-cloud-config
@@ -66,10 +56,6 @@ dependencies:
     - id: connector-mysql-efcore
       name: Use MySQL connector with Entity Framework Core
       description: Adds a connector for MySQL databases using Entity Framework Core.
-    - id: connector-oauth
-      steeltoeVersionRange: '[3.0,4.0)'
-      name: Use OAuth connector
-      description: Adds a connector for OAuth2 security on Cloud Foundry.
     - id: connector-postgresql
       name: Use PostgreSQL connector with ADO.NET
       description: Adds a connector for PostgreSQL databases using ADO.NET.
@@ -103,15 +89,6 @@ dependencies:
       description: Adds a Dockerfile to the project for container support.
   - name: Hosting
     values:
-    - id: hosting-cloud
-      steeltoeVersionRange: '[3.0,4.0)'
-      name: Use dynamic port bindings in cloud environments
-      description: Adds support for listening on the port specified by the hosting environment.
-    - id: hosting-azure-spring-cloud
-      steeltoeVersionRange: '[3.0,4.0)'
-      name: Use Microsoft Azure Spring Cloud
-      description: Adds hosting support for running on Microsoft Azure Spring Cloud.
-      active: false
     - id: hosting-cloud-foundry
       name: Use Cloud Foundry
       description: Adds hosting support for running on Cloud Foundry.
@@ -134,16 +111,6 @@ dependencies:
     - id: distributed-tracing
       name: Use distributed tracing
       description: Adds distributed tracing support.
-  - name: Messaging
-    values:
-    - id: messaging-rabbitmq-client
-      steeltoeVersionRange: '[3.0,4.0)'
-      name: Use RabbitMQ client service
-      description: Adds a RabbitMQ client service for sending and receiving messages.
-    - id: messaging-rabbitmq-listener
-      steeltoeVersionRange: '[3.0,4.0)'
-      name: Use RabbitMQ listener service
-      description: Adds a RabbitMQ listener service for processing messages.
   - name: Security
     values:
     - id: data-protection-redis
