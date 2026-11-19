@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="7.2.*" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.*" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.*" />
+        <PackageReference Include="xunit.v3" Version="3.2.*" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.*" />
+        <PackageReference Include="YamlDotNet" Version="18.1.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Initializr.ApiTests\Steeltoe.InitializrService.Config\UiConfig.cs"
+                 Link="Steeltoe.InitializrService.Config\UiConfig.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\..\SteeltoeInitializr*.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <Target Name="CleanBaseOutput" AfterTargets="Clean">
+        <RemoveDir Directories="$(BaseOutputPath)" />
+    </Target>
+
+</Project>
