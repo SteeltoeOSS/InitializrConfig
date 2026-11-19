@@ -39,3 +39,5 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --verbosity minimal /p:TreatWarningsAsErrors=True
 
+    - name: Validate configuration
+      run: dotnet test test/Initializr.ConfigTests --configuration Release --no-build --verbosity minimal

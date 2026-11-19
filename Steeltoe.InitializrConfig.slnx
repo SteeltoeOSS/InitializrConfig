@@ -11,4 +11,5 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="test/Initializr.ApiTests/Steeltoe.Initializr.ApiTests.csproj" />
+  <Project Path="test/Initializr.ConfigTests/Steeltoe.Initializr.ConfigTests.csproj" />
 </Solution>
